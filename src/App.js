@@ -40,11 +40,26 @@ function App() {
     setTasks(tasks.filter((task) => task.id !== id));
   };
 
+  // Toggle reminder
+  const toggleReminder = (id) => {
+    setTasks(
+      tasks.map((task) =>
+        // Se o id recebido como argumento for igual ao id da iteração atual
+        // o mesmo objeto é mapeado porém com a chave reminder invertida
+        task.id === id ? { ...task, reminder: !task.reminder } : task
+      )
+    );
+  };
+
   return (
     <div className="container">
       <Header />
       {tasks.length > 0 ? (
-        <Tasks tasks={tasks} onDelete={deleteTask} />
+        <Tasks
+          tasks={tasks}
+          onDelete={deleteTask}
+          onToggleReminder={toggleReminder}
+        />
       ) : (
         "All done!"
       )}
