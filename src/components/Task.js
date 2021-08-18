@@ -9,7 +9,7 @@ const Task = ({ task, onDelete, onToggleReminder }) => {
       <div style={horizontal}>
         <div>
           <h3> {task.text} </h3>
-          <p> {task.day} </p>
+          <p> {task.date} </p>
         </div>
         <FaTimes onClick={() => onDelete(task.id)} />
       </div>

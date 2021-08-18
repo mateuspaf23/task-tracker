@@ -2,37 +2,44 @@ import { useState } from "react";
 
 import Header from "./components/Header";
 import Tasks from "./components/Tasks";
+import AddTask from "./components/AddTask";
 
 function App() {
+  const [showAddTask, setShowAddTask] = useState(false);
   const [tasks, setTasks] = useState([
     {
       id: 1,
       text: "Chores",
-      day: "17/08 (Today)",
+      date: "17/08 (Today)",
       reminder: true,
     },
     {
       id: 2,
       text: "Homework",
-      day: "17/08 (Today)",
+      date: "17/08 (Today)",
       reminder: true,
     },
     {
       id: 3,
       text: "Programming",
-      day: "17/08 (Today)",
+      date: "17/08 (Today)",
       reminder: true,
     },
     {
       id: 4,
       text: "Work out",
-      day: "17/08 (Today)",
+      date: "17/08 (Today)",
       reminder: true,
     },
   ]);
 
   // Add task
-  const addTask = () => {};
+  const addTask = (task) => {
+    const id = Math.floor(Math.random() * 10000) + 1;
+    const newTask = { id, ...task };
+
+    setTasks([...tasks, newTask]);
+  };
 
   // Delete task
   const deleteTask = (id) => {
@@ -53,7 +60,13 @@ function App() {
 
   return (
     <div className="container">
-      <Header />
+      <Header
+        showAddTask={showAddTask}
+        onAddTask={() => setShowAddTask(!showAddTask)}
+      />
+
+      {showAddTask && <AddTask onAddTask={addTask} />}
+
       {tasks.length > 0 ? (
         <Tasks
           tasks={tasks}
