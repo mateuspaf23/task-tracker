@@ -4,7 +4,7 @@
       "id": 1,
       "text": "Chores",
       "date": "17/08 (Today)",
-      "reminder": true
+      "reminder": false
     },
     {
       "id": 2,
@@ -16,13 +16,19 @@
       "id": 3,
       "text": "Programming",
       "date": "17/08 (Today)",
-      "reminder": true
+      "reminder": false
     },
     {
-      "id": 4,
       "text": "Work out",
-      "date": "17/08 (Today)",
-      "reminder": true
+      "date": "18/08",
+      "reminder": false,
+      "id": 4
+    },
+    {
+      "text": "Walk",
+      "date": "20/08",
+      "reminder": false,
+      "id": 5
     }
   ]
 }
